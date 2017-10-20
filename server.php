@@ -34,8 +34,13 @@
 					  VALUES('$username', '$email', '$password')";
 			mysqli_query($db, $query);
 
+			$query2 = "INSERT INTO `save`(`username`, `artIndex`, `imgIndex`) 
+						VALUES ('$username', '0', '0')";
+
+			mysqli_query($db, $query2);
 			$_SESSION['username'] = $username;
 			$_SESSION['success'] = "You are now logged in";
+
 			header('location: index.php');
 		}
 

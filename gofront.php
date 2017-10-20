@@ -4,8 +4,10 @@
 		$db = mysqli_connect('localhost', 'root', '19961211', 'registration');
 		//Reset or increase
 		if($imgIndex + 1 >= sizeof($img)){
-			$artIndex++;
-			$imgIndex = 0;
+			if($artIndex < sizeof($a) - 1){
+				$artIndex++;
+				$imgIndex = 0;
+			}
 		} 
 
 		else{

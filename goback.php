@@ -4,11 +4,12 @@
 		$db = mysqli_connect('localhost', 'root', '19961211', 'registration');
 		//Reset or increase
 		if($imgIndex - 1 <= -1){
-			$artIndex--;
-			$img = explode('/#/',$a[$artIndex]["Image"]);
-			$imgIndex = sizeof($img) - 1;
+			if($artIndex > 0){
+				$artIndex--;
+				$img = explode('/#/',$a[$artIndex]["Image"]);
+				$imgIndex = sizeof($img) - 1;
+			}
 		} 
-
 		else{
 			$imgIndex--;
 		}

@@ -26,14 +26,14 @@
 		}
 
 		foreach($checkArray as $value){
-			if($value['Picture'] == $img[$imgIndex]){
-				$sql = "UPDATE `data` SET `Sentence`='$selected' WHERE `Picture`='$img[$imgIndex]'";
+			if($value['PhotoID'] == $imgID[$imgIndex]){
+				$sql = "UPDATE `data` SET `Sentence`='$selected' WHERE `PhotoID`='$imgID[$imgIndex]'";
 				$flag = 1;
 			}
 		}
 	
 		if($flag == 0){
-			$sql = "INSERT INTO data (Caption, Picture, Sentence) VALUES ('$title','$img[$imgIndex]', '$selected')";
+			$sql = "INSERT INTO data (username, PhotoID, Sentence) VALUES ('$username','$imgID[$imgIndex]', '$selected')";
 		}
 
 		echo "<br><br>";
@@ -55,7 +55,7 @@
 		}
 
 		//Save indexes
-		$sql = "UPDATE `save` SET `artIndex`=$artIndex,`imgIndex`=$imgIndex WHERE 1";
+		$sql = "UPDATE `save` SET `artIndex`=$artIndex,`imgIndex`=$imgIndex WHERE `username`='$username'";
 		mysqli_query($db,$sql);
 
 		header('location: index.php');
