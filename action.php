@@ -33,7 +33,7 @@
 		}
 	
 		if($flag == 0){
-			$sql = "INSERT INTO data (username, PhotoID, Sentence) VALUES ('$username','$imgID[$imgIndex]', '$selected')";
+			$sql = "INSERT INTO `data` (username, PhotoID, Sentence) VALUES ('$username','$imgID[$imgIndex]', '$selected')";
 		}
 
 		echo "<br><br>";
@@ -55,7 +55,7 @@
 		}
 
 		//Save indexes
-		$sql = "UPDATE `save` SET `artIndex`=$artIndex,`imgIndex`=$imgIndex WHERE `username`='$username'";
+		$sql = "UPDATE `save` SET `artIndex`='$artIndex',`imgIndex`='$imgIndex' WHERE `username`='$username'";
 		mysqli_query($db,$sql);
 
 		header('location: index.php');

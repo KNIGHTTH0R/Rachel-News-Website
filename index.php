@@ -32,6 +32,12 @@
 	<br>
 	<form action="gofront.php" method="post">
 		<input type="submit" name = "submit" value="Go forward">
+	</form>		
+	<br>
+	<form action="goPage.php" method="post">
+		<input type="submit" name = "submit" value="Go to page">
+		<input type="text" name = "page">
+		<input type="text" name = "image">
 	</form>
 </div>
 
