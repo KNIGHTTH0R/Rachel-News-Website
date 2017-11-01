@@ -31,7 +31,7 @@ CREATE TABLE save(
 );
 
 CREATE TABLE `ny politics`(
-	NewsID INT,
+	NewsID text,
 	Date VARCHAR(100),
 	Caption VARCHAR(1000),
 	NumSentence INT,
@@ -64,13 +64,10 @@ Website Instruction:
 
 3. If a image has been labeled, the sentences will be checked automatically when you go back to that image, but you can overwrite it by selecting new sentences and clicking submit.
 
-<<<<<<< HEAD
 4. Go to Page: First blank is article id and Second blank is image id.
 
 
-=======
-4. To jump to a specific article number/image number: go to "save" table and using SQL UPDATE Statement to change article number/image number to specific value.
->>>>>>> 45c9c5fbf23f5e9410a3fe8266dc573039f090a4
+4. To jump to a specific article number/image number: go to "save" table and using SQL UPDATE Statement to change article number/image number to specific value. (IF ARTICLE & IMAGE NOT EXIST, IT WILL REMAIN ON THAT PAGE).
 
 NOTES: Try not to directly access other .php file by typing url.
 
