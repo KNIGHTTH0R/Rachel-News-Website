@@ -5,7 +5,7 @@ include('main.php');
 		$db = mysqli_connect('localhost', 'root', '19961211', 'registration');
 		$page = mysqli_real_escape_string($db, $_POST['page']);
 		$img = mysqli_real_escape_string($db, $_POST['image']);
-		$sql = "SELECT `ImageID` FROM `ny politics` WHERE `NewsID`='$page'";
+		$sql = "SELECT `ImageID` FROM `nyp` WHERE `NewsID`='$page'";
 		$result = mysqli_query($db,$sql);
 		$row=mysqli_fetch_row($result);
 		$result = $row[0];

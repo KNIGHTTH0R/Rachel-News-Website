@@ -14,7 +14,7 @@
 		$selected = substr($selected, 0, -3);
 
 		//Check duplicity if so, override previous one
-		$sql = "SELECT * FROM `data`";
+		$sql = "SELECT * FROM `nypdata`";
 		$result = mysqli_query($db,$sql)or die(mysqli_error($db));
 	
 		$checkArray = array();
@@ -27,13 +27,13 @@
 
 		foreach($checkArray as $value){
 			if($value['PhotoID'] == $imgID[$imgIndex]){
-				$sql = "UPDATE `data` SET `Sentence`='$selected' WHERE `PhotoID`='$imgID[$imgIndex]'";
+				$sql = "UPDATE `nypdata` SET `Sentence`='$selected' WHERE `PhotoID`='$imgID[$imgIndex]'";
 				$flag = 1;
 			}
 		}
 	
 		if($flag == 0){
-			$sql = "INSERT INTO `data` (username, PhotoID, Sentence) VALUES ('$username','$imgID[$imgIndex]', '$selected')";
+			$sql = "INSERT INTO `nypdata` (username, PhotoID, Sentence) VALUES ('$username','$imgID[$imgIndex]', '$selected')";
 		}
 
 		echo "<br><br>";

@@ -14,7 +14,7 @@
 
 	$username = $_SESSION['username'];
 	$db = mysqli_connect('localhost', 'root', '19961211', 'registration');
-	$sql = "SELECT * FROM `ny politics`";
+	$sql = "SELECT * FROM `nyp`";
 	$result = mysqli_query($db,$sql)or die(mysqli_error($db));
 	
 	$a = array();

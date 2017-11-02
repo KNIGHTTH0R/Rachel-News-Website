@@ -3,6 +3,12 @@
 <!DOCTYPE html>
 <html>
 <style>
+	div.scroll {
+	    background-color: #F8F8FF;
+	    width: 500px;
+	    height: 550px;
+	    overflow: scroll;
+	}
 	body{
 		background: #F8F8FF;
 	}
@@ -42,45 +48,46 @@
 </div>
 
 <div style="float:left; width:50%;">
-	<h3> Please select sentences choices below: </h3>
-	<form action="action.php" method="post">
-		<?php 
-			$db = mysqli_connect('localhost', 'root', '19961211', 'registration'); 
-			$checkArray = array();
-			$index = 0;
-			$flag = 0;
-			$tmp = array();
-			$sql = "SELECT * FROM `data`";
-			$result = mysqli_query($db,$sql)or die(mysqli_error($db));
+	<div class="scroll">
+		<h3> Please select sentences choices below: </h3>
+		<form action="action.php" method="post">
+			<?php 
+				$db = mysqli_connect('localhost', 'root', '19961211', 'registration'); 
+				$checkArray = array();
+				$index = 0;
+				$flag = 0;
+				$tmp = array();
+				$sql = "SELECT * FROM `nypdata`";
+				$result = mysqli_query($db,$sql)or die(mysqli_error($db));
 
-			while($rows = mysqli_fetch_array($result)){
-				$checkArray[$index] = $rows;
-				$index++;
-			}
-
-			foreach($checkArray as $value){
-				if($value['PhotoID'] == $imgID[$imgIndex]){
-					$flag = 1;
-					$tmp = explode('/#/', $value['Sentence']);
+				while($rows = mysqli_fetch_array($result)){
+					$checkArray[$index] = $rows;
+					$index++;
 				}
-			}
 
-			foreach($sentence as $value):
-				$checked = 0;
-				if($flag == 1){
-					foreach($tmp as $a){
-						if($a == $value){
-							$checked = 1;
-						}
+				foreach($checkArray as $value){
+					if($value['PhotoID'] == $imgID[$imgIndex]){
+						$flag = 1;
+						$tmp = explode('/#/', $value['Sentence']);
 					}
 				}
-		?>
-    		<input type="checkbox" name="check[]" value="<?php echo $value;?>" <?php if ($checked == 1){echo 'checked';}?>> <?php echo $value;?><br>
-    	<?php endforeach; ?>	
-			<br>
-		<input type="submit" name = "submit" value="Submit">
-	</form>
 
+				foreach($sentence as $value):
+					$checked = 0;
+					if($flag == 1){
+						foreach($tmp as $a){
+							if($a == $value){
+								$checked = 1;
+							}
+						}
+					}
+			?>
+	    		<input type="checkbox" name="check[]" value="<?php echo $value;?>" <?php if ($checked == 1){echo 'checked';}?>> <?php echo $value;?><br>
+	    	<?php endforeach; ?>	
+				<br>
+			<input type="submit" name = "submit" value="Submit">
+		</form>
+	</div>
 </div>
 </body>
 </html>
