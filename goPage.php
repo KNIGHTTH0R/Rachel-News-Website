@@ -5,7 +5,7 @@ include('main.php');
 		$db = mysqli_connect('localhost', 'root', '19961211', 'registration');
 		$page = mysqli_real_escape_string($db, $_POST['page']);
 		$img = mysqli_real_escape_string($db, $_POST['image']);
-		$sql = "SELECT `ImageID` FROM `nyp` WHERE `NewsID`='$page'";
+		$sql = "SELECT `ImageID` FROM `$section` WHERE `NewsID`='$page'";
 		$result = mysqli_query($db,$sql);
 		$row=mysqli_fetch_row($result);
 		$result = $row[0];
@@ -21,7 +21,7 @@ include('main.php');
 
 		$page = (int)substr($page, 3) - 1;
 		if($page != -1){
-			$sql2 = "UPDATE `save` SET `artIndex`='$page',`imgIndex`='$image' WHERE `username`='$username'";
+			$sql2 = "UPDATE `save` SET `artIndex`='$page',`imgIndex`='$image' WHERE `username`='$username' AND `section`='$section'";
 			mysqli_query($db,$sql2);
 		}
 	}

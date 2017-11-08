@@ -34,14 +34,54 @@
 					  VALUES('$username', '$email', '$password')";
 			mysqli_query($db, $query);
 
-			$query2 = "INSERT INTO `save`(`username`, `artIndex`, `imgIndex`) 
-						VALUES ('$username', '0', '0')";
-
+			$query2 = "INSERT INTO `save`(`username`, `section`, `artIndex`, `imgIndex`) 
+						VALUES ('$username', 'nyp', '0', '0')";
 			mysqli_query($db, $query2);
+
+			$query2 = "INSERT INTO `save`(`username`, `section`, `artIndex`, `imgIndex`) 
+						VALUES ('$username', 'nyw', '0', '0')";
+			mysqli_query($db, $query2);
+
+			$query2 = "INSERT INTO `save`(`username`, `section`, `artIndex`, `imgIndex`) 
+						VALUES ('$username', 'nys', '0', '0')";
+			mysqli_query($db, $query2);
+
+			$query2 = "INSERT INTO `save`(`username`, `section`, `artIndex`, `imgIndex`) 
+						VALUES ('$username', 'cnp', '0', '0')";
+			mysqli_query($db, $query2);
+
+			$query2 = "INSERT INTO `save`(`username`, `section`, `artIndex`, `imgIndex`) 
+						VALUES ('$username', 'cne', '0', '0')";
+			mysqli_query($db, $query2);
+
+			$query2 = "INSERT INTO `save`(`username`, `section`, `artIndex`, `imgIndex`) 
+						VALUES ('$username', 'cnw', '0', '0')";
+			mysqli_query($db, $query2);
+
+			$query2 = "INSERT INTO `save`(`username`, `section`, `artIndex`, `imgIndex`) 
+						VALUES ('$username', 'cns', '0', '0')";
+			mysqli_query($db, $query2);
+
+			$query2 = "INSERT INTO `save`(`username`, `section`, `artIndex`, `imgIndex`) 
+						VALUES ('$username', 'nbp', '0', '0')";
+			mysqli_query($db, $query2);
+
+			$query2 = "INSERT INTO `save`(`username`, `section`, `artIndex`, `imgIndex`) 
+						VALUES ('$username', 'nbs', '0', '0')";
+			mysqli_query($db, $query2);
+
+			$query2 = "INSERT INTO `save`(`username`, `section`, `artIndex`, `imgIndex`) 
+						VALUES ('$username', 'nbw', '0', '0')";
+			mysqli_query($db, $query2);
+
+			$query2 = "INSERT INTO `save`(`username`, `section`, `artIndex`, `imgIndex`) 
+						VALUES ('$username', 'nbe', '0', '0')";
+			mysqli_query($db, $query2);
+
 			$_SESSION['username'] = $username;
 			$_SESSION['success'] = "You are now logged in";
 
-			header('location: index.php');
+			header('location: configuration.php');
 		}
 
 	}
@@ -68,7 +108,7 @@
 			if (mysqli_num_rows($results) == 1) {
 				$_SESSION['username'] = $username;
 				$_SESSION['success'] = "You are now logged in";
-				header('location: index.php');
+				header('location: configuration.php');
 			}else {
 				array_push($errors, "Wrong username/password combination");
 			}

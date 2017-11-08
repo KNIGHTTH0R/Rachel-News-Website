@@ -7,6 +7,7 @@
 			if($artIndex > 0){
 				$artIndex--;
 				$img = explode('/#/',$a[$artIndex]["Image"]);
+				$imgID = explode('/#/', $a[$artIndex]["ImageID"]);
 				$imgIndex = sizeof($img) - 1;
 			}
 		} 
@@ -15,7 +16,7 @@
 		}
 
 		//Save indexes
-		$sql = "UPDATE `save` SET `artIndex`='$artIndex',`imgIndex`='$imgIndex' WHERE `username`='$username'";
+		$sql = "UPDATE `save` SET `artIndex`='$artIndex',`imgIndex`='$imgIndex' WHERE `username`='$username' AND `section`='$section'";
 		mysqli_query($db,$sql);
 
 		header('location: index.php');

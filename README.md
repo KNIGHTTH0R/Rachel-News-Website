@@ -26,11 +26,13 @@ CREATE TABLE users (
 
 CREATE TABLE save(
 	username VARCHAR(30),
+	section VARCHAR(10),
 	artIndex INT,
 	imgIndex INT
 );
 
-CREATE TABLE `ny politics`(
+##For example, NY Times: nyp, nyw, nys.   CNN: cnp cnw, cns, cne. NBC: nbp, nbw nbe, nbs
+CREATE TABLE nyp(
 	NewsID text,
 	Date VARCHAR(100),
 	Caption VARCHAR(1000),
@@ -40,16 +42,16 @@ CREATE TABLE `ny politics`(
 	Image text
 );
 
-CREATE TABLE data(
+CREATE TABLE nypdata(
 	username VARCHAR(30),
 	PhotoID VARCHAR(100),
 	Sentence text
 );
 
-4. In XAMPP, click Apache's config button, and click "php.ini", change "memory_limit","post_max_size","upload_max_filesize" value to 100MB.
+4. In XAMPP, click Apache's config button, and click "php.ini", change "memory_limit","post_max_size","upload_max_filesize" value to 1000MB.
    Find "xampp\phpMyAdmin\libraries\config.default.php" and change $cfg['ExecTimeLimit'] to 0
 	
-5. Select "ny politics" table, in "Import" menu, select "NY Politics.csv" and import it into database (Take a while)
+5. Select "nyp"(For example) table, in "Import" menu, select "NY Politics.csv"(For example) and import it into database (Take a while)
 
 6. Save all .php file .css file into "XAMPP/htdocs"
 
@@ -67,7 +69,9 @@ Website Instruction:
 4. Go to Page: First blank is article id and Second blank is image id.
 
 
-4. To jump to a specific article number/image number: go to "save" table and using SQL UPDATE Statement to change article number/image number to specific value. (IF ARTICLE & IMAGE NOT EXIST, IT WILL REMAIN ON THAT PAGE).
+5. To jump to a specific article number/image number: go to "save" table and using SQL UPDATE Statement to change article number/image number to specific value. (IF ARTICLE & IMAGE NOT EXIST, IT WILL REMAIN ON THAT PAGE).
+
+6. Configuration Page: change section.
 
 NOTES: Try not to directly access other .php file by typing url.
 
@@ -78,6 +82,6 @@ Database Table Description:
 
 2. save: Article Index, Image Index for each user
 
-3. ny politics: csv data is here
+3. nyp: csv data is here
 
-4. data: Labeling data is here 
+4. nypdata: Labeling data is here 

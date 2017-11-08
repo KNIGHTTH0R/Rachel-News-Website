@@ -1,6 +1,8 @@
 <?php
 	session_start(); 
 
+	$section = $_SESSION['section'];
+	$data = $section."data";
 	if (!isset($_SESSION['username'])) {
 		$_SESSION['msg'] = "You must log in first";
 		header('location: login.php');
@@ -14,8 +16,10 @@
 
 	$username = $_SESSION['username'];
 	$db = mysqli_connect('localhost', 'root', '19961211', 'registration');
-	$sql = "SELECT * FROM `nyp`";
-	$result = mysqli_query($db,$sql)or die(mysqli_error($db));
+
+
+	$sql = "SELECT * FROM $section";
+	$result = mysqli_query($db,$sql) or die(mysqli_error($db));
 	
 	$a = array();
 	$index = 0;
@@ -28,7 +32,7 @@
 	$sql2 = "SELECT * FROM save";
 	$result2 = mysqli_query($db,$sql2)or die(mysqli_error($db));
 	while($rows = mysqli_fetch_array($result2)){
-		if($rows['username'] == $username){
+		if($rows['username'] == $username and  $rows['section'] == $section){
 			$artIndex = $rows['artIndex'];
 			$imgIndex = $rows['imgIndex'];
 		}

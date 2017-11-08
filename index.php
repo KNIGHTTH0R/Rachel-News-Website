@@ -21,13 +21,16 @@
 <!-- logged in user information -->
 <?php  if (isset($_SESSION['username'])) :?>
 	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+	<button onclick="window.location='configuration.php'">Go to Configuration Page</button>
 	<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
 <?php endif ?>
 
+<h3 style="text-align:center">Section: <?php echo $section?></h3> 
 <h3 style="text-align:center">News ID: <?php echo $newsID;?>  Image ID: <?php echo $imgID[$imgIndex]?></h3>
 <h3 style="text-align:center">Title: <?php echo $title;?></h3>
 <h3 style="text-align:center">Date: <?php echo $a[$artIndex]["Date"];?> </h3>
 <h3 style="text-align:center">Number of sentences: <?php echo $a[$artIndex]["NumSentence"];?></h3>
+
 
 <div style="float:left; width:50%;">
 	<h3> picture<?php echo ($imgIndex + 1);?></h3>
@@ -57,7 +60,7 @@
 				$index = 0;
 				$flag = 0;
 				$tmp = array();
-				$sql = "SELECT * FROM `nypdata`";
+				$sql = "SELECT * FROM $data";
 				$result = mysqli_query($db,$sql)or die(mysqli_error($db));
 
 				while($rows = mysqli_fetch_array($result)){
@@ -66,7 +69,7 @@
 				}
 
 				foreach($checkArray as $value){
-					if($value['PhotoID'] == $imgID[$imgIndex]){
+					if($value['PhotoID'] == $imgID[$imgIndex] and $value['username'] == $username){
 						$flag = 1;
 						$tmp = explode('/#/', $value['Sentence']);
 					}

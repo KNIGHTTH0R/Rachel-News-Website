@@ -14,7 +14,7 @@
 		}
 
 		//Save indexes
-		$sql = "UPDATE `save` SET `artIndex`='$artIndex',`imgIndex`='$imgIndex' WHERE `username`='$username'";
+		$sql = "UPDATE `save` SET `artIndex`='$artIndex',`imgIndex`='$imgIndex' WHERE `username`='$username' AND `section`='$section'";
 		mysqli_query($db,$sql);
 
 		header('location: index.php');
