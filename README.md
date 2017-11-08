@@ -64,14 +64,11 @@ Website Instruction:
 
 2. Go Backward/Forward: move to next picture without saving/modifying database
 
-3. If a image has been labeled, the sentences will be checked automatically when you go back to that image, but you can overwrite it by selecting new sentences and clicking submit.
+3. If a image has been labeled by the current user, the sentences will be checked automatically when you go back to that image, but you can overwrite it by selecting new sentences and clicking submit.
 
-4. Go to Page: First blank is article id and Second blank is image id.
+4. Go to Page: First blank is article id and Second blank is image id. (If data entered is not correct, it will stay on the same page)
 
-
-5. To jump to a specific article number/image number: go to "save" table and using SQL UPDATE Statement to change article number/image number to specific value. (IF ARTICLE & IMAGE NOT EXIST, IT WILL REMAIN ON THAT PAGE).
-
-6. Configuration Page: change section.
+5. Configuration Page: change section.
 
 NOTES: Try not to directly access other .php file by typing url.
 
