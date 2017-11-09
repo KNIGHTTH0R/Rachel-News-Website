@@ -31,7 +31,7 @@ CREATE TABLE save(
 	imgIndex INT
 );
 
-##For example, NY Times: nyp, nyw, nys.   CNN: cnp cnw, cns, cne. NBC: nbp, nbw nbe, nbs
+##For example, NY Times: nyp, nyw, nys.   CNN: cnp cnw, cns, cne. 	NBC: nbp, nbw nbe, nbs
 CREATE TABLE nyp(
 	NewsID text,
 	Date VARCHAR(100),
@@ -60,6 +60,18 @@ CREATE TABLE nypdata(
 
 ------------------------------------------------------------------------------------------------------------
 Website Instruction:
+nyp: NY Times Politics
+nyw: NY Times World
+nys: NY Times Sport
+cnp: CNN Politics
+cnw: CNN World
+cne: CNN Entertainment
+cns: CNN Sport
+nbp: NBC Politics
+nbw: NBC World
+nbs: NBC Sports
+nbe: NBC Entertainment
+
 1. Submit: save the labeling sentences into database
 
 2. Go Backward/Forward: move to next picture without saving/modifying database
@@ -77,8 +89,9 @@ NOTES: Try not to directly access other .php file by typing url.
 Database Table Description:
 1. users: User information table
 
-2. save: Article Index, Image Index for each user
+2. save: Article Index, Image Index for each section for each user
 
+Same with other sections:
 3. nyp: csv data is here
 
 4. nypdata: Labeling data is here 
